@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane fx:id="rootStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="813.0" stylesheets="@application.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CIRMS.MainGUI.MainViewController">
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" styleClass="root" stylesheets="@application.css">
+         <top>
+            <MenuBar stylesheets="@application.css" BorderPane.alignment="CENTER">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#handleOnClose" text="Close" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleOnRestart" text="Restart" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="View">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#viewStudentsBtn" text="View Student" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Add">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#loadAddStudents" text="Add Student" />
+                        <MenuItem mnemonicParsing="false" onAction="#addComponents" text="Add Component" />
+                        <MenuItem mnemonicParsing="false" onAction="#addEquipment" text="Add Equipment" />
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="Help">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="About" />
+                     </items>
+                  </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <center>
+            <AnchorPane BorderPane.alignment="CENTER">
+               <children>
+                  <JFXTabPane minHeight="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <tabs>
+                        <Tab text="Equipmemt Issue">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox alignment="CENTER" layoutX="127.0" layoutY="50.0" prefHeight="440.0" prefWidth="649.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <HBox fx:id="EquipmentInfo" alignment="TOP_CENTER" prefHeight="175.0" prefWidth="609.0">
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="170.0" prefWidth="286.0">
+                                                   <children>
+                                                      <JFXComboBox fx:id="comboBoxTables" labelFloat="true" onAction="#equipmentNameComboBox" prefHeight="25.0" prefWidth="184.0" promptText="Select Equipment Name" styleClass="combo-box-base" stylesheets="@application.css" unFocusColor="#9e9595" visibleRowCount="6" />
+                                                      <JFXTextField fx:id="equipModelInput" layoutX="10.0" layoutY="35.0" onAction="#loadEquipmentInfo" prefHeight="25.0" prefWidth="283.0" promptText="Enter  Equipment Model number" unFocusColor="#f5f5f4f0">
+                                                         <VBox.margin>
+                                                            <Insets left="20.0" right="20.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </JFXTextField>
+                                                      <JFXTextField fx:id="assetNumberInput" layoutX="30.0" layoutY="94.0" onAction="#loadEquipmentInfo" prefHeight="37.0" prefWidth="256.0" promptText="Enter  Equipment Asset Number" unFocusColor="#f5f5f4f0">
+                                                         <VBox.margin>
+                                                            <Insets left="20.0" right="20.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </JFXTextField>
+                                                   </children>
+                                                   <HBox.margin>
+                                                      <Insets right="10.0" />
+                                                   </HBox.margin>
+                                                </VBox>
+                                                <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="147.0" prefWidth="370.0">
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
+                                                   <children>
+                                                      <Text fx:id="equipName" fill="#e4d9d9" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="main-txt" text="Equipment Name" textAlignment="CENTER" wrappingWidth="369.337890625">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Text fx:id="equipmentCondition" fill="#e1d4d4" layoutX="10.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="main-txt" text="Equipment Condition" textAlignment="CENTER" wrappingWidth="369.337890625">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Text fx:id="equipStatus" fill="#d3cccc" layoutX="10.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="main-txt" text="Status" textAlignment="CENTER" wrappingWidth="369.337890625">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Text>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox fx:id="studentInfo" alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="185.0" prefWidth="649.0">
+                                             <children>
+                                                <VBox alignment="CENTER" prefHeight="180.0" prefWidth="300.0">
+                                                   <children>
+                                                      <JFXComboBox fx:id="studComboBox" labelFloat="true" onAction="#loadStudComboBox" prefHeight="25.0" prefWidth="192.0" promptText="Select Student Qualification" stylesheets="@application.css" unFocusColor="#c9baba" />
+                                                      <JFXTextField fx:id="studNumTxtField" layoutX="10.0" layoutY="35.0" onAction="#loadStudent" prefHeight="30.0" prefWidth="184.0" promptText="Enter Student Number" unFocusColor="#c3bebe">
+                                                         <VBox.margin>
+                                                            <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
+                                                         </VBox.margin>
+                                                      </JFXTextField>
+                                                   </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="157.0" prefWidth="370.0">
+                                                   <HBox.margin>
+                                                      <Insets />
+                                                   </HBox.margin>
+                                                   <children>
+                                                      <Text fx:id="studSurname" fill="#dac8c8" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="main-txt" text="Student Surname" textAlignment="CENTER" wrappingWidth="369.337890625">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Text fx:id="studContact" fill="#eee8e8" layoutX="10.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="main-txt" text="Contact" textAlignment="CENTER" wrappingWidth="369.337890625">
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Text>
+                                                      <Text fx:id="emailAddress" fill="#dacece" layoutX="10.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="main-txt" text="Email address" textAlignment="CENTER" wrappingWidth="369.337890625">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                         <VBox.margin>
+                                                            <Insets top="10.0" />
+                                                         </VBox.margin>
+                                                      </Text>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" left="20.0" right="20.0" />
+                                             </VBox.margin>
+                                          </HBox>
+                                          <HBox alignment="CENTER" prefHeight="55.0" prefWidth="703.0">
+                                             <children>
+                                                <JFXButton onAction="#issueEquipmentBtn" prefHeight="32.0" prefWidth="97.0" styleClass="login-button" stylesheets="@application.css" text="Issue">
+                                                   <font>
+                                                      <Font size="13.0" />
+                                                   </font>
+                                                </JFXButton>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab text="Renew / Submission">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <BorderPane layoutX="225.0" layoutY="81.0" prefHeight="440.0" prefWidth="649.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <bottom>
+                                          <HBox alignment="CENTER" prefHeight="55.0" prefWidth="649.0" BorderPane.alignment="CENTER">
+                                             <children>
+                                                <JFXButton onAction="#loadRenewOperation" prefHeight="0.0" prefWidth="120.0" styleClass="login-button" stylesheets="@application.css" text="Renew">
+                                                   <font>
+                                                      <Font size="13.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets right="20.0" />
+                                                   </HBox.margin>
+                                                   <opaqueInsets>
+                                                      <Insets right="20.0" />
+                                                   </opaqueInsets>
+                                                </JFXButton>
+                                                <JFXButton layoutX="309.0" layoutY="25.0" onAction="#handleOnSubmission" prefHeight="0.0" prefWidth="120.0" styleClass="login-button" stylesheets="@application.css" text="Submission">
+                                                   <font>
+                                                      <Font size="13.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets right="20.0" />
+                                                   </HBox.margin>
+                                                   <opaqueInsets>
+                                                      <Insets left="20.0" />
+                                                   </opaqueInsets>
+                                                </JFXButton>
+                                             </children>
+                                          </HBox>
+                                       </bottom>
+                                       <center>
+                                          <ListView fx:id="listViewData" prefHeight="337.0" prefWidth="621.0" styleClass="context-menu" stylesheets="@application.css" BorderPane.alignment="CENTER">
+                                             <BorderPane.margin>
+                                                <Insets left="10.0" right="10.0" top="10.0" />
+                                             </BorderPane.margin>
+                                          </ListView>
+                                       </center>
+                                       <top>
+                                          <HBox alignment="CENTER" prefHeight="61.0" prefWidth="703.0" BorderPane.alignment="CENTER">
+                                             <children>
+                                                <JFXTextField fx:id="EquipModel" alignment="TOP_LEFT" labelFloat="true" onAction="#loadEquimentIssue" prefHeight="25.0" prefWidth="182.0" promptText="Enter Equipment Model" styleClass="text" stylesheets="@application.css">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                   <HBox.margin>
+                                                      <Insets top="10.0" />
+                                                   </HBox.margin>
+                                                </JFXTextField>
+                                             </children>
+                                          </HBox>
+                                       </top>
+                                    </BorderPane>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                     </tabs>
+                  </JFXTabPane>
+               </children>
+            </AnchorPane>
+         </center>
+         <left>
+            <VBox alignment="TOP_CENTER" prefHeight="457.0" prefWidth="110.0" stylesheets="@application.css" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#viewStudentsBtn" prefHeight="530.0" prefWidth="120.0" styleClass="toolbar-button" stylesheets="@application.css" text="View Student">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="10.0" />
+                     </padding>
+                     <graphic>
+                        <FontAwesomeIconView glyphName="TABLE" lineSpacing="25.0" size="20" textAlignment="CENTER" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="140.0" mnemonicParsing="false" onAction="#loadAddStudents" prefHeight="530.0" prefWidth="120.0" styleClass="toolbar-button" stylesheets="@application.css" text="Add Student">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" />
+                     </padding>
+                     <graphic>
+                        <FontAwesomeIconView glyphName="USER_PLUS" lineSpacing="25.0" size="20" />
+                     </graphic>
+                  </JFXButton>
+                  <MenuButton alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="530.0" prefWidth="120.0" styleClass="toolbar-button" stylesheets="@application.css" text="Components" textFill="#b5a5a5">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#displayBananaPlugsTable" text="Banana Plug" />
+                        <MenuItem mnemonicParsing="false" onAction="#displayBNCTable" text="BNC " />
+                        <MenuItem mnemonicParsing="false" onAction="#displayCrocClipsTable" text="Croc Clips" />
+                        <MenuItem mnemonicParsing="false" onAction="#loadDataSocketTable" text="Data Socket " />
+                        <MenuItem mnemonicParsing="false" onAction="#displayDInConnectsTable" text="DIN - Connects" />
+                        <MenuItem mnemonicParsing="false" onAction="#displayDisplayTable" text="Display" />
+                        <MenuItem mnemonicParsing="false" onAction="#displayDCMotorsTable" text="DC Motors" />
+                        <MenuItem mnemonicParsing="false" onAction="#displayETDClipsTable" text="ETD Clips" />
+                        <MenuItem mnemonicParsing="false" onAction="#displayFusesHoldersTable" text="Fuses &amp; Fuse Holders" />
+                        <MenuItem mnemonicParsing="false" onAction="#displayHighSpeedDiodesTable" text="High Speed/ Faster Recovery Diodes" />
+                        <MenuItem mnemonicParsing="false" onAction="#displayIGBTTable" text="IGBT" />
+                        <MenuItem mnemonicParsing="false" onAction="#DisplayInsulatorsTable" text="Insulator" />
+                        <MenuItem mnemonicParsing="false" onAction="#displayIntegratedCircuitTable" text="Integrated Circuits" />
+                        <MenuItem mnemonicParsing="false" onAction="#DisplayLedsTable" text="Leds" />
+                        <MenuItem mnemonicParsing="false" onAction="#displayLogicalGateTable" text="Logical Gates" />
+                        <MenuItem mnemonicParsing="false" onAction="#displayMicrophoneTable" text="Microphone" />
+                        <MenuItem mnemonicParsing="false" onAction="#displayOpAmpsTable" text="Op-Amps" />
+                        <MenuItem mnemonicParsing="false" onAction="#loadPowerHoleTable" text="Power Hole Connector" />
+                        <MenuItem mnemonicParsing="false" onAction="#loadTemperatureDeviceTable" text="Temperature Device" />
+                        <MenuItem mnemonicParsing="false" onAction="#loadTransistorsTable" text="Transistors" />
+                        <MenuItem mnemonicParsing="false" onAction="#loadZenerDiodesTable" text="Zener Diodes" />
+                     </items>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <graphic>
+                        <FontAwesomeIconView glyphName="TH_LIST" size="20" />
+                     </graphic>
+                  </MenuButton>
+                  <MenuButton alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="530.0" prefWidth="120.0" styleClass="toolbar-button" stylesheets="@application.css" text="Equipments" textFill="#bfb0b0">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#loadBreadBoardTable" text="BreadBorard" />
+                        <MenuItem mnemonicParsing="false" onAction="#loadComputersTable" text="Computers" />
+                        <MenuItem mnemonicParsing="false" onAction="#loadFunctionGeneratorTable" text="Function Generator" />
+                        <MenuItem mnemonicParsing="false" onAction="#loadMultimetersTable" text="Multimeters" />
+                        <MenuItem mnemonicParsing="false" onAction="#loadOscilloscopeTable" text="Oscilloscopes" />
+                        <MenuItem mnemonicParsing="false" onAction="#loadPowerSuppliesTable" text="Power Supplies" />
+                        <MenuItem mnemonicParsing="false" onAction="#loadToolsTable" text="Tools" />
+                     </items>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <graphic>
+                        <FontAwesomeIconView glyphName="TH_LIST" size="20" />
+                     </graphic>
+                  </MenuButton>
+                  <MenuButton alignment="BOTTOM_CENTER" contentDisplay="TOP" layoutX="10.0" layoutY="294.0" lineSpacing="25.0" mnemonicParsing="false" prefHeight="530.0" prefWidth="120.0" styleClass="toolbar-button" stylesheets="@application.css" text="Add" textAlignment="CENTER" textFill="#d0c4c4">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#addComponents" text="Add Components" />
+                        <MenuItem mnemonicParsing="false" onAction="#addEquipment" text="Add Equipments" />
+                     </items>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets top="25.0" />
+                     </padding>
+                     <graphic>
+                        <FontAwesomeIconView glyphName="PLUS" size="20" />
+                     </graphic>
+                  </MenuButton>
+                  <JFXButton alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#handlerOnSetting" prefHeight="530.0" prefWidth="120.0" styleClass="toolbar-button" stylesheets="@application.css" text="Settings">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <FontAwesomeIconView glyphName="COG" lineSpacing="25.0" size="20" />
+                     </graphic>
+                  </JFXButton>
+               </children>
+               <BorderPane.margin>
+                  <Insets top="30.0" />
+               </BorderPane.margin>
+            </VBox>
+         </left>
+      </BorderPane>
+   </children>
+</StackPane>

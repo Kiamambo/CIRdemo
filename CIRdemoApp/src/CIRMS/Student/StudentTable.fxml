@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPaneStdTable" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="412.0" prefWidth="828.0" stylesheets="@../MainGUI/application.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CIRMS.Student.StudentTableController">
+   <children>
+      <BorderPane prefHeight="412.0" prefWidth="828.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <bottom>
+            <AnchorPane prefHeight="47.0" prefWidth="828.0" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXButton fx:id="backButton" layoutX="535.0" layoutY="4.0" onAction="#loadMainFxml" prefHeight="17.0" prefWidth="177.0" styleClass="login-button" stylesheets="@../MainGUI/application.css" text="Home" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="41.0">
+                     <graphic>
+                        <FontAwesomeIconView fill="#f5eeee" glyphName="ARROW_LEFT" size="20" />
+                     </graphic>
+                     <font>
+                        <Font size="14.0" />
+                     </font></JFXButton>
+               </children>
+            </AnchorPane>
+         </bottom>
+         <center>
+            <JFXTabPane BorderPane.alignment="CENTER">
+               <tabs>
+                  <Tab text="Btech Students">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="studentBTable" prefHeight="331.0" prefWidth="805.0" stylesheets="@../MainGUI/application.css" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <columns>
+                                    <TableColumn fx:id="nameBColumn" prefWidth="100.0" text="Name" />
+                                    <TableColumn fx:id="surnameBColumn" prefWidth="100.0" text="Surname" />
+                                    <TableColumn fx:id="studNoBColumn" prefWidth="97.0" text="Student No" />
+                                    <TableColumn fx:id="supervisorBColumn" prefWidth="83.0" text="Supervisor" />
+                                    <TableColumn fx:id="emailBColumn" prefWidth="168.0" text="Email" />
+                                    <TableColumn fx:id="cellphoneNoBColumn" prefWidth="125.0" text="Cellphone " />
+                                    <TableColumn fx:id="stationBColumn" prefWidth="61.0" text="Station" />
+                                    <TableColumn fx:id="courseBColumn" prefWidth="84.0" text="Course" />
+                                 </columns>
+                                 <contextMenu>
+                                    <ContextMenu>
+                                       <items>
+                                          <MenuItem mnemonicParsing="false" onAction="#handlerEditStudentB" text="Edit" />
+                                          <MenuItem mnemonicParsing="false" onAction="#handlerRefresh" text="Refresh" />
+                                          <MenuItem mnemonicParsing="false" onAction="#handlerDeleteStudentB" text="Delete" />
+                                       </items>
+                                    </ContextMenu>
+                                 </contextMenu>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Master Students">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="masterStudTable" prefHeight="329.0" prefWidth="805.0" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <columns>
+                                    <TableColumn fx:id="nameMColumn" prefWidth="100.0" text="Name" />
+                                    <TableColumn fx:id="surnameMColumn" prefWidth="100.0" text="Surname" />
+                                    <TableColumn fx:id="studentaNoMColumn" text="Student No" />
+                                    <TableColumn fx:id="supervisorMColumn" prefWidth="100.0" text="Supervisor" />
+                                    <TableColumn fx:id="emailMColumn" prefWidth="152.0" text="Email" />
+                                    <TableColumn fx:id="cellphoneMColumn" prefWidth="123.0" text="Cellphone Number" />
+                                    <TableColumn fx:id="stationMColumn" prefWidth="60.0" text="Station" />
+                                    <TableColumn fx:id="courseMColumn" prefWidth="65.0" text="Course" />
+                                 </columns>
+                                 <contextMenu>
+                                    <ContextMenu>
+                                       <items>
+                                          <MenuItem mnemonicParsing="false" onAction="#handlerEditMasterStud" text="Edit" />
+                                          <MenuItem mnemonicParsing="false" onAction="#handlerOnRefreshMasterStud" text="Refresh" />
+                                          <MenuItem mnemonicParsing="false" onAction="#handlerOnDeleteMasterStud" text="Delete" />
+                                       </items>
+                                    </ContextMenu>
+                                 </contextMenu>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+               </tabs>
+            </JFXTabPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
